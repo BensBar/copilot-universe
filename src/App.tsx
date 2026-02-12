@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Toaster } from '@/components/ui/sonner';
 import { CapabilityMap } from '@/components/CapabilityMap';
 import { DetailPanel } from '@/components/DetailPanel';
@@ -9,6 +9,19 @@ import { Stage } from '@/lib/types';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 function App() {
+  useEffect(() => {
+    const handleError = (event: ErrorEvent) => {
+      if (event.message?.includes('onMessage') || 
+          event.message?.includes('chrome-extension') ||
+          event.message?.includes('Extension context')) {
+        event.preventDefault();
+        return false;
+      }
+    };
+    
+    window.addEventListener('error', handleError);
+    return () => window.removeEventListener('error', handleError);
+  }, []);
   const [selectedId, setSelectedId] = useState<string>('code-review');
   const [activeStage, setActiveStage] = useState<Stage | null>(null);
   const isMobile = useIsMobile();
