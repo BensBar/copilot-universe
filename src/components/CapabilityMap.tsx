@@ -115,13 +115,13 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
                       key={cap.id}
                       onClick={() => onSelect(cap.id)}
                       className={cn(
-                        "w-full px-3 py-2.5 rounded-lg bg-white text-left text-sm font-medium transition-all duration-200 flex items-center gap-2.5 shadow-sm",
+                        "w-full px-3 py-2.5 rounded-lg bg-white text-left text-xs font-medium transition-all duration-200 flex items-center gap-2 shadow-sm",
                         "hover:shadow-md hover:scale-[1.02]",
                         isSelected && "hotspot-glow ring-2 ring-primary"
                       )}
                     >
-                      <Icon size={16} weight="duotone" className="text-muted-foreground shrink-0" />
-                      <span className="truncate">{cap.label}</span>
+                      <Icon size={14} weight="duotone" className="text-muted-foreground shrink-0" />
+                      <span className="break-words leading-tight">{cap.label}</span>
                     </button>
                   );
                 })}

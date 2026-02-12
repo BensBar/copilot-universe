@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Capability } from '@/lib/capabilityData';
 import { STAGE_COLORS, STAGE_TEXT_COLORS } from '@/lib/types';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 import { Copy, Check, ArrowSquareOut } from '@phosphor-icons/react';
@@ -53,6 +52,14 @@ function PromptBlock({ title, text }: { title: string; text: string }) {
 }
 
 export function DetailPanel({ capability }: DetailPanelProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (capability && scrollRef.current) {
+      scrollRef.current.scrollTop = 0;
+    }
+  }, [capability?.id]);
+
   if (!capability) {
     return (
       <div className="h-full flex items-center justify-center p-8">
@@ -64,7 +71,7 @@ export function DetailPanel({ capability }: DetailPanelProps) {
   }
 
   return (
-    <ScrollArea className="h-full">
+    <div ref={scrollRef} className="h-full overflow-y-auto">
       <div className="p-6 space-y-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
@@ -189,6 +196,6 @@ export function DetailPanel({ capability }: DetailPanelProps) {
           </>
         )}
       </div>
-    </ScrollArea>
+    </div>
   );
 }
