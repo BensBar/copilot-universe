@@ -32,10 +32,10 @@ export const capabilityData: Capability[] = [
     ],
     demoFlow: [
       'Open a new issue in your repository',
-      'Type a brief description like "Fix login timeout"',
-      'Watch Copilot expand the description with context',
-      'Accept suggested labels and assignees',
-      'Submit the fully-formed issue'
+      'Use Copilot Chat to draft the issue body',
+      'Copy the generated content into the issue',
+      'Manually add labels and assignees',
+      'Submit the issue'
     ],
     prompts: [
       {
@@ -63,11 +63,9 @@ export const capabilityData: Capability[] = [
       'Recommends priority ordering'
     ],
     demoFlow: [
-      'Open your project board',
-      'Ask Copilot to analyze current sprint progress',
-      'Review the generated summary',
-      'Use suggestions to reorder priorities',
-      'Export the status report'
+      'N/A - Project analytics features are not yet available',
+      'Use Copilot Chat to manually summarize project status',
+      'Ask Copilot to help prioritize based on issue details'
     ],
     prompts: [
       {
@@ -95,10 +93,8 @@ export const capabilityData: Capability[] = [
       'Provides cross-repo search and insights'
     ],
     demoFlow: [
-      'Navigate to your organization Spaces',
-      'Ask Copilot about repository relationships',
-      'View the generated dependency map',
-      'Click through to related resources'
+      'N/A - Spaces is not yet generally available',
+      'Feature is in limited preview'
     ],
     prompts: [
       {
@@ -126,20 +122,20 @@ export const capabilityData: Capability[] = [
       'Identifies technical requirements'
     ],
     demoFlow: [
-      'Open Copilot Chat in your IDE or GitHub',
-      'Type /planning followed by your feature description',
-      'Review the generated breakdown',
-      'Approve to create issues automatically',
-      'Assign team members to generated tasks'
+      'Open Copilot Chat in VS Code or github.com',
+      'Type a feature description to break down',
+      'Copilot suggests tasks and sub-tasks',
+      'Manually create issues from the suggestions',
+      'Assign team members to tasks'
     ],
     prompts: [
       {
         title: 'VS Code',
-        promptText: '/planning Add user authentication with OAuth support for Google and GitHub, including session management and logout functionality'
+        promptText: 'Help me plan the implementation of user authentication with OAuth support for Google and GitHub, including session management'
       },
       {
         title: 'Copilot Chat',
-        promptText: '/planning Break down this epic into implementable user stories with acceptance criteria'
+        promptText: 'Break down this epic into implementable user stories with acceptance criteria'
       }
     ],
     governanceNotes: [
@@ -162,16 +158,16 @@ export const capabilityData: Capability[] = [
       'Enables code search from messaging apps'
     ],
     demoFlow: [
-      'Install the GitHub app in your Slack workspace',
-      'Link your GitHub account',
-      'Ask @github about a repository or PR',
-      'View the AI-generated summary',
-      'Click through to take action on GitHub'
+      'Install the GitHub app in Slack workspace',
+      'Run /github signin to link your account',
+      'Use /github subscribe owner/repo to get notifications',
+      'Type /github followed by commands like "prs" or "issues"',
+      'Click links to view details on GitHub'
     ],
     prompts: [
       {
         title: 'Slack',
-        promptText: '@github summarize the open PRs in our frontend repo that need review'
+        promptText: '/github prs owner/repo'
       }
     ],
     governanceNotes: [
@@ -194,11 +190,11 @@ export const capabilityData: Capability[] = [
       'Learns from your coding patterns'
     ],
     demoFlow: [
-      'Open a file in your IDE',
-      'Start typing a function signature',
-      'View the ghost text suggestion',
-      'Press Tab to accept or keep typing',
-      'Use Ctrl+Enter to see alternative suggestions'
+      'Open a file in VS Code with Copilot enabled',
+      'Start typing a function signature or comment',
+      'View the gray ghost text suggestion',
+      'Press Tab to accept or Esc to dismiss',
+      'Press Ctrl+Enter (Cmd+Enter on Mac) to see alternatives'
     ],
     prompts: [
       {
@@ -228,11 +224,11 @@ export const capabilityData: Capability[] = [
       'Helps debug error messages'
     ],
     demoFlow: [
-      'Install gh copilot extension',
-      'Type gh copilot suggest followed by your intent',
+      'Install GitHub CLI and Copilot extension: gh extension install github/gh-copilot',
+      'Run: gh copilot suggest "your request"',
       'Review the suggested command',
-      'Press Enter to execute or edit first',
-      'Use gh copilot explain for command breakdowns'
+      'Press Enter to copy or run the command',
+      'Use: gh copilot explain "command" to understand commands'
     ],
     prompts: [
       {
@@ -264,20 +260,20 @@ export const capabilityData: Capability[] = [
       'Handles dependencies and imports automatically'
     ],
     demoFlow: [
-      'Open Copilot Chat in your IDE',
-      'Describe the feature you want to build',
-      'Review the proposed changes',
-      'Accept individual changes or all at once',
-      'Test the implemented feature'
+      'Open Copilot Chat in VS Code (Ctrl+Shift+I)',
+      'Click "Open Copilot Edits" or use Ctrl+Shift+Alt+I',
+      'Describe the changes you want across files',
+      'Review proposed changes in the diff view',
+      'Click Accept or Discard for each file'
     ],
     prompts: [
       {
         title: 'VS Code',
-        promptText: '/coding Add dark mode support to this React app using CSS variables and a toggle component'
+        promptText: 'Add dark mode support to this React app using CSS variables and a toggle component'
       },
       {
         title: 'VS Code',
-        promptText: '/coding Refactor this class-based component to use React hooks'
+        promptText: 'Refactor this class-based component to use React hooks'
       }
     ],
     governanceNotes: [
@@ -300,11 +296,11 @@ export const capabilityData: Capability[] = [
       'Deploys apps with one click'
     ],
     demoFlow: [
-      'Open GitHub Spark',
-      'Describe your app in natural language',
-      'Watch the app generate in real-time',
-      'Iterate with follow-up instructions',
-      'Deploy and share with your team'
+      'Go to github.com/spark',
+      'Click "New Spark" and describe your app',
+      'Watch the app generate in real-time preview',
+      'Iterate by typing follow-up changes',
+      'Click "Publish" to share with others'
     ],
     prompts: [
       {
@@ -332,11 +328,11 @@ export const capabilityData: Capability[] = [
       'Share agents across your organization'
     ],
     demoFlow: [
-      'Navigate to Copilot Extensions settings',
-      'Create a new custom agent',
-      'Define the agent skills and knowledge',
-      'Test with sample queries',
-      'Deploy to your organization'
+      'Go to github.com/marketplace?type=apps&copilot_app=true',
+      'Browse or search for Copilot Extensions',
+      'Install an extension to your org/account',
+      'Use @extension-name in Copilot Chat to invoke it',
+      'Or build your own at github.com/settings/apps'
     ],
     prompts: [
       {
@@ -364,11 +360,11 @@ export const capabilityData: Capability[] = [
       'Highlights potential issues'
     ],
     demoFlow: [
-      'Create a new pull request',
-      'Click "Generate summary" with Copilot',
-      'Review the AI-generated description',
-      'Adjust and submit the PR',
-      'View Copilot suggestions in review'
+      'Create a pull request with code changes',
+      'Click "Generate" next to the description field',
+      'Copilot creates a summary from your commits',
+      'Edit the generated description as needed',
+      'Submit the PR'
     ],
     prompts: [
       {
@@ -397,16 +393,12 @@ export const capabilityData: Capability[] = [
     ],
     demoFlow: [
       'Open a pull request',
-      'Request review from Copilot',
-      'View inline suggestions and comments',
-      'Apply suggested fixes with one click',
-      'Re-request review after changes'
+      'Under Reviewers, select "Copilot"',
+      'Wait for Copilot to analyze the diff',
+      'View inline comments with suggestions',
+      'Click "Commit suggestion" to apply fixes directly'
     ],
     prompts: [
-      {
-        title: 'PR comment',
-        promptText: '@copilot review this PR focusing on security and performance'
-      },
       {
         title: 'VS Code',
         promptText: '/code-review Check this function for potential memory leaks and race conditions'
@@ -433,16 +425,16 @@ export const capabilityData: Capability[] = [
       'Prevents insecure patterns in suggestions'
     ],
     demoFlow: [
-      'Push code with a security issue',
-      'View the Copilot security alert',
-      'Click "View suggested fix"',
-      'Review the secure replacement code',
-      'Apply fix and verify resolution'
+      'Enable Code Scanning in repo Settings > Security',
+      'Push code or open a PR to trigger a scan',
+      'View alerts under Security > Code scanning',
+      'Click an alert to see "Generate fix" button',
+      'Review and commit the Copilot-suggested fix'
     ],
     prompts: [
       {
         title: 'VS Code',
-        promptText: '/secure Scan this authentication code for security vulnerabilities'
+        promptText: 'Scan this authentication code for security vulnerabilities'
       },
       {
         title: 'Copilot Chat',
@@ -470,20 +462,20 @@ export const capabilityData: Capability[] = [
       'Mocks dependencies automatically'
     ],
     demoFlow: [
-      'Select a function or class',
-      'Use /testing to generate tests',
-      'Review generated test cases',
-      'Add to your test suite',
-      'Run and verify coverage increase'
+      'Open a file in VS Code and select a function',
+      'Open Copilot Chat and type: Generate tests for this function',
+      'Review the generated test cases',
+      'Copy tests to your test file',
+      'Run tests to verify coverage'
     ],
     prompts: [
       {
         title: 'VS Code',
-        promptText: '/testing Generate comprehensive unit tests for this UserService class including edge cases'
+        promptText: 'Generate comprehensive unit tests for this UserService class including edge cases'
       },
       {
         title: 'VS Code',
-        promptText: '/testing Write integration tests for this API endpoint with mocked database'
+        promptText: 'Write integration tests for this API endpoint with mocked database'
       }
     ],
     governanceNotes: [
@@ -506,11 +498,11 @@ export const capabilityData: Capability[] = [
       'Links previews to PRs automatically'
     ],
     demoFlow: [
-      'Open a PR with frontend changes',
-      'Wait for preview deployment to build',
-      'Click the preview URL in PR checks',
-      'Test the changes in isolation',
-      'Share link with stakeholders'
+      'Configure deployment in your hosting provider (Vercel, Netlify, etc.)',
+      'Link your GitHub repository',
+      'Open a PR - preview URL is auto-generated',
+      'Click the deployment link in PR checks',
+      'Test changes before merging'
     ],
     prompts: [
       {
@@ -538,11 +530,11 @@ export const capabilityData: Capability[] = [
       'Optimizes parallel job execution'
     ],
     demoFlow: [
-      'Describe your deployment needs',
-      'Use Copilot to generate the workflow',
-      'Review and customize the YAML',
+      'Go to repo Actions tab and click "New workflow"',
+      'Browse starter workflows or ask Copilot Chat to generate one',
+      'Review the YAML configuration',
       'Commit to .github/workflows/',
-      'Monitor the first run'
+      'Push code to trigger the workflow'
     ],
     prompts: [
       {
@@ -575,10 +567,10 @@ export const capabilityData: Capability[] = [
       'Creates user-friendly changelogs'
     ],
     demoFlow: [
-      'Navigate to Releases in your repo',
-      'Click "Draft a new release"',
-      'Click "Generate release notes"',
-      'Review and edit the generated content',
+      'Go to repo > Releases > "Draft a new release"',
+      'Choose a tag or create a new one',
+      'Click "Generate release notes" button',
+      'Review auto-generated notes from commits',
       'Publish the release'
     ],
     prompts: [
@@ -607,11 +599,11 @@ export const capabilityData: Capability[] = [
       'Debugs app authentication issues'
     ],
     demoFlow: [
-      'Go to Developer Settings > GitHub Apps',
-      'Create a new app',
-      'Ask Copilot to generate webhook handlers',
-      'Implement the app logic',
-      'Test with Smee or similar tool'
+      'Go to Settings > Developer settings > GitHub Apps',
+      'Click "New GitHub App"',
+      'Configure permissions and webhook URL',
+      'Use Copilot Chat to help write webhook handlers',
+      'Install the app on a test repository'
     ],
     prompts: [
       {
@@ -640,11 +632,9 @@ export const capabilityData: Capability[] = [
       'Processes and summarizes data'
     ],
     demoFlow: [
-      'Create a new workflow file',
-      'Add AI-powered action steps',
-      'Configure model and prompts',
-      'Set up triggers and conditions',
-      'Monitor AI-enhanced automation'
+      'N/A - AI Workflows is a conceptual capability',
+      'Use GitHub Actions with script steps to call AI APIs',
+      'Ask Copilot Chat to help write the workflow YAML'
     ],
     prompts: [
       {
@@ -673,11 +663,9 @@ export const capabilityData: Capability[] = [
       'Provides deployment intelligence'
     ],
     demoFlow: [
-      'Define agent capabilities for deployment',
-      'Connect to infrastructure APIs',
-      'Create deployment commands',
-      'Test in staging environment',
-      'Roll out to production workflows'
+      'N/A - Same as Code stage Custom agents',
+      'Install extensions from GitHub Marketplace',
+      'Or build custom extensions using the Copilot Extensions SDK'
     ],
     prompts: [
       {
@@ -706,11 +694,11 @@ export const capabilityData: Capability[] = [
       'Generates executive reports'
     ],
     demoFlow: [
-      'Navigate to Organization Settings',
-      'Open Copilot metrics dashboard',
-      'View adoption by team and user',
-      'Analyze suggestion acceptance rates',
-      'Export data for reporting'
+      'Go to Organization Settings > Copilot > Policies',
+      'Click "Copilot Metrics" in the sidebar',
+      'View adoption, acceptance rates, and usage stats',
+      'Filter by team, repository, or time period',
+      'Export data using the API for custom reporting'
     ],
     prompts: [
       {
@@ -739,11 +727,10 @@ export const capabilityData: Capability[] = [
       'Manages data persistence'
     ],
     demoFlow: [
-      'Deploy a Spark app',
-      'View the runtime dashboard',
-      'Monitor usage and performance',
-      'Check error logs if issues occur',
-      'Scale or update as needed'
+      'Publish a Spark app (see /spark-app)',
+      'N/A - Runtime dashboard is not user-accessible',
+      'Monitor app behavior through the Spark interface',
+      'View stored data using useKV in your app code'
     ],
     prompts: [
       {
@@ -772,11 +759,8 @@ export const capabilityData: Capability[] = [
       'Automates runbook execution'
     ],
     demoFlow: [
-      'Configure SRE Agent with your stack',
-      'Connect monitoring and alerting tools',
-      'Trigger a test incident',
-      'View AI-generated diagnosis',
-      'Execute suggested remediation'
+      'N/A - SRE Agent is not yet generally available',
+      'Feature is in limited preview for select customers'
     ],
     prompts: [
       {
@@ -805,11 +789,11 @@ export const capabilityData: Capability[] = [
       'Extends with custom data sources'
     ],
     demoFlow: [
-      'Browse available MCP servers',
-      'Configure connection credentials',
-      'Test the integration',
-      'Use @mentions to access tools',
-      'Build workflows using MCP data'
+      'In VS Code, go to Settings > Copilot > MCP Servers',
+      'Add an MCP server configuration (URL and auth)',
+      'Restart Copilot Chat',
+      'Use @server-name in chat to query the connected tool',
+      'View responses with data from the external service'
     ],
     prompts: [
       {
