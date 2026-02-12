@@ -8,19 +8,40 @@ import { capabilityData, getCapabilityById } from '@/lib/capabilityData';
 import { Stage } from '@/lib/types';
 import { useIsMobile } from '@/hooks/use-mobile';
 
+const isExtensionError = (message?: string) => {
+  if (!message) return false;
+  return message.includes('onMessage') || 
+         message.includes('chrome-extension') ||
+         message.includes('Extension context') ||
+         message.includes('runtime.connect') ||
+         message.includes('port closed');
+};
+
 function App() {
   useEffect(() => {
     const handleError = (event: ErrorEvent) => {
-      if (event.message?.includes('onMessage') || 
-          event.message?.includes('chrome-extension') ||
-          event.message?.includes('Extension context')) {
+      if (isExtensionError(event.message)) {
         event.preventDefault();
+        event.stopPropagation();
         return false;
       }
     };
     
-    window.addEventListener('error', handleError);
-    return () => window.removeEventListener('error', handleError);
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      const message = event.reason?.message || String(event.reason);
+      if (isExtensionError(message)) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    };
+    
+    window.addEventListener('error', handleError, true);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection, true);
+    
+    return () => {
+      window.removeEventListener('error', handleError, true);
+      window.removeEventListener('unhandledrejection', handleUnhandledRejection, true);
+    };
   }, []);
   const [selectedId, setSelectedId] = useState<string>('code-review');
   const [activeStage, setActiveStage] = useState<Stage | null>(null);
