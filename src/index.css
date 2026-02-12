@@ -1,1 +1,92 @@
-/* This is where custom CSS goes */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+:root {
+  --background: oklch(0.97 0.01 250);
+  --foreground: oklch(0.2 0.02 250);
+  
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0 0);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0 0);
+  
+  --primary: oklch(0.55 0.2 250);
+  --primary-foreground: oklch(1 0 0);
+  
+  --secondary: oklch(0.95 0.01 250);
+  --secondary-foreground: oklch(0.3 0.02 250);
+  
+  --muted: oklch(0.94 0.01 250);
+  --muted-foreground: oklch(0.45 0.02 250);
+  
+  --accent: oklch(0.65 0.2 145);
+  --accent-foreground: oklch(1 0 0);
+  
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  
+  --border: oklch(0.9 0.01 250);
+  --input: oklch(0.9 0.01 250);
+  --ring: oklch(0.55 0.2 250);
+  
+  --radius: 0.625rem;
+  
+  --stage-plan: oklch(0.75 0.15 350);
+  --stage-code: oklch(0.7 0.18 30);
+  --stage-verify: oklch(0.7 0.15 150);
+  --stage-deploy: oklch(0.65 0.15 280);
+  --stage-operate: oklch(0.6 0.12 180);
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-stage-plan: var(--stage-plan);
+  --color-stage-code: var(--stage-code);
+  --color-stage-verify: var(--stage-verify);
+  --color-stage-deploy: var(--stage-deploy);
+  --color-stage-operate: var(--stage-operate);
+  
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 3);
+  --radius-full: 9999px;
+  
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.hotspot-glow {
+  box-shadow: 0 0 0 3px oklch(0.55 0.2 250 / 0.5), 0 0 20px oklch(0.55 0.2 250 / 0.3);
+}
+
+.prompt-block {
+  font-family: 'JetBrains Mono', monospace;
+}
