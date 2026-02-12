@@ -38,7 +38,7 @@ export const capabilityData: Capability[] = [
       'Manually add labels and assignees',
       'Submit the issue'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=Fi3AJZZregI',
+    videoUrl: 'https://www.youtube.com/watch?v=1VbCLPr9SDM',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -69,7 +69,7 @@ export const capabilityData: Capability[] = [
       'Use Copilot Chat to manually summarize project status',
       'Ask Copilot to help prioritize based on issue details'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=yBDHkveJOY4',
+    videoUrl: 'https://www.youtube.com/watch?v=pRqXyYmN-Sk',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -99,7 +99,7 @@ export const capabilityData: Capability[] = [
       'N/A - Spaces is not yet generally available',
       'Feature is in limited preview'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=WSBFfBFP3bI',
+    videoUrl: 'https://www.youtube.com/watch?v=a0LWEWLUt48',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -132,7 +132,7 @@ export const capabilityData: Capability[] = [
       'Manually create issues from the suggestions',
       'Assign team members to tasks'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=H_IXnCGu5EQ',
+    videoUrl: 'https://www.youtube.com/watch?v=dhfTaSGYQ4o',
     prompts: [
       {
         title: 'VS Code',
@@ -169,7 +169,7 @@ export const capabilityData: Capability[] = [
       'Type /github followed by commands like "prs" or "issues"',
       'Click links to view details on GitHub'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=CwC-ARxJPdo',
+    videoUrl: 'https://www.youtube.com/watch?v=jXp5D5ZnxGM',
     prompts: [
       {
         title: 'Slack',
@@ -202,7 +202,7 @@ export const capabilityData: Capability[] = [
       'Press Tab to accept or Esc to dismiss',
       'Press Ctrl+Enter (Cmd+Enter on Mac) to see alternatives'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=jXp5D5ZnxGM',
+    videoUrl: 'https://www.youtube.com/watch?v=Fi3AJZZregI',
     prompts: [
       {
         title: 'VS Code',
@@ -237,7 +237,7 @@ export const capabilityData: Capability[] = [
       'Press Enter to copy or run the command',
       'Use: gh copilot explain "command" to understand commands'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=fHwtrOcLAnI',
+    videoUrl: 'https://www.youtube.com/watch?v=VkOibxsQ1oU',
     prompts: [
       {
         title: 'Copilot CLI',
@@ -274,7 +274,7 @@ export const capabilityData: Capability[] = [
       'Review proposed changes in the diff view',
       'Click Accept or Discard for each file'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=YK5qdkIsUEY',
+    videoUrl: 'https://www.youtube.com/watch?v=hPVatUSvZq0',
     prompts: [
       {
         title: 'VS Code',
@@ -311,7 +311,7 @@ export const capabilityData: Capability[] = [
       'Iterate by typing follow-up changes',
       'Click "Publish" to share with others'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=1VbCLPr9SDM',
+    videoUrl: 'https://www.youtube.com/watch?v=zB-izOTcQ6s',
     prompts: [
       {
         title: 'Spark',
@@ -344,7 +344,7 @@ export const capabilityData: Capability[] = [
       'Use @extension-name in Copilot Chat to invoke it',
       'Or build your own at github.com/settings/apps'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=YX_2m1pKFjQ',
+    videoUrl: 'https://www.youtube.com/watch?v=5NxGqnTazR8&t=620s',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -377,7 +377,7 @@ export const capabilityData: Capability[] = [
       'Edit the generated description as needed',
       'Submit the PR'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=Fi3AJZZregI',
+    videoUrl: 'https://www.youtube.com/watch?v=yLHWRegFg-I',
     prompts: [
       {
         title: 'PR comment',
@@ -410,7 +410,7 @@ export const capabilityData: Capability[] = [
       'View inline comments with suggestions',
       'Click "Commit suggestion" to apply fixes directly'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=bYdmfmIvZRo',
+    videoUrl: 'https://www.youtube.com/watch?v=lW44NYHZDto',
     prompts: [
       {
         title: 'VS Code',
@@ -444,7 +444,7 @@ export const capabilityData: Capability[] = [
       'Click an alert to see "Generate fix" button',
       'Review and commit the Copilot-suggested fix'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=QE8lE3vamQY',
+    videoUrl: 'https://www.youtube.com/watch?v=jNLASUQIJAs',
     prompts: [
       {
         title: 'VS Code',
@@ -482,7 +482,7 @@ export const capabilityData: Capability[] = [
       'Copy tests to your test file',
       'Run tests to verify coverage'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=oLvZqezblAk',
+    videoUrl: 'https://www.youtube.com/watch?v=smdBqEu7fx4',
     prompts: [
       {
         title: 'VS Code',
@@ -519,7 +519,7 @@ export const capabilityData: Capability[] = [
       'Click the deployment link in PR checks',
       'Test changes before merging'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=N89xWlLHKYg',
+    videoUrl: 'https://www.youtube.com/watch?v=Ul1FynLT78Q',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -552,7 +552,7 @@ export const capabilityData: Capability[] = [
       'Commit to .github/workflows/',
       'Push code to trigger the workflow'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=mBYJJVnVpRM',
+    videoUrl: 'https://www.youtube.com/watch?v=ljINpvCvHnQ',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -590,7 +590,7 @@ export const capabilityData: Capability[] = [
       'Review auto-generated notes from commits',
       'Publish the release'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=fI07KVMULgA',
+    videoUrl: 'https://www.youtube.com/watch?v=Ob9llKkv6II',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -655,7 +655,7 @@ export const capabilityData: Capability[] = [
       'Use GitHub Actions with script steps to call AI APIs',
       'Ask Copilot Chat to help write the workflow YAML'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=mBYJJVnVpRM',
+    videoUrl: 'https://www.youtube.com/watch?v=Ul1FynLT78Q',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -687,7 +687,7 @@ export const capabilityData: Capability[] = [
       'Install extensions from GitHub Marketplace',
       'Or build custom extensions using the Copilot Extensions SDK'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=YX_2m1pKFjQ',
+    videoUrl: 'https://www.youtube.com/watch?v=5NxGqnTazR8&t=620s',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -721,7 +721,7 @@ export const capabilityData: Capability[] = [
       'Filter by team, repository, or time period',
       'Export data using the API for custom reporting'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=L4zQ-LS6qGk',
+    videoUrl: 'https://www.youtube.com/watch?v=43yFNFT8-R4',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -754,7 +754,7 @@ export const capabilityData: Capability[] = [
       'Monitor app behavior through the Spark interface',
       'View stored data using useKV in your app code'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=1VbCLPr9SDM',
+    videoUrl: 'https://www.youtube.com/watch?v=zB-izOTcQ6s',
     prompts: [
       {
         title: 'Spark',
@@ -819,7 +819,7 @@ export const capabilityData: Capability[] = [
       'Use @server-name in chat to query the connected tool',
       'View responses with data from the external service'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=r2u5qHNXxtU',
+    videoUrl: 'https://www.youtube.com/watch?v=HN47tveqfQU',
     prompts: [
       {
         title: 'Copilot Chat',
