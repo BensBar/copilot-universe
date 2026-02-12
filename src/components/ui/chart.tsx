@@ -116,14 +116,20 @@ function ChartTooltipContent({
   color,
   nameKey,
   labelKey,
-}: ComponentProps<typeof RechartsPrimitive.Tooltip> &
-  ComponentProps<"div"> & {
-    hideLabel?: boolean
-    hideIndicator?: boolean
-    indicator?: "line" | "dot" | "dashed"
-    nameKey?: string
-    labelKey?: string
-  }) {
+}: ComponentProps<"div"> & {
+  active?: boolean
+  payload?: ReadonlyArray<any>
+  label?: string | number
+  labelFormatter?: (value: any, payload: ReadonlyArray<any>) => ReactNode
+  labelClassName?: string
+  formatter?: (value: any, name: any, item: any, index: number, payload: any) => ReactNode
+  color?: string
+  hideLabel?: boolean
+  hideIndicator?: boolean
+  indicator?: "line" | "dot" | "dashed"
+  nameKey?: string
+  labelKey?: string
+}) {
   const { config } = useChart()
 
   const tooltipLabel = useMemo(() => {
@@ -254,11 +260,12 @@ function ChartLegendContent({
   payload,
   verticalAlign = "bottom",
   nameKey,
-}: ComponentProps<"div"> &
-  Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
-    hideIcon?: boolean
-    nameKey?: string
-  }) {
+}: ComponentProps<"div"> & {
+  payload?: ReadonlyArray<any>
+  verticalAlign?: "top" | "bottom" | "middle"
+  hideIcon?: boolean
+  nameKey?: string
+}) {
   const { config } = useChart()
 
   if (!payload?.length) {

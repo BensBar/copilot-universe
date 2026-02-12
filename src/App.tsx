@@ -43,7 +43,7 @@ function App() {
       window.removeEventListener('unhandledrejection', handleUnhandledRejection, true);
     };
   }, []);
-  const [selectedId, setSelectedId] = useState<string>('code-review');
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [activeStage, setActiveStage] = useState<Stage | null>(null);
   const isMobile = useIsMobile();
   

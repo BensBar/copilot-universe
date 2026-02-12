@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import { ErrorBoundary } from "react-error-boundary";
-import "@github/spark/spark"
+// Stubbed out for local development (GitHub Spark package not available)
+// import "@github/spark/spark"
 
 import App from './App.tsx'
 import { ErrorFallback } from './ErrorFallback.tsx'
