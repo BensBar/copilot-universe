@@ -3,7 +3,7 @@ import { Capability } from '@/lib/capabilityData';
 import { STAGE_COLORS, STAGE_TEXT_COLORS } from '@/lib/types';
 import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
-import { Copy, Check, ArrowSquareOut } from '@phosphor-icons/react';
+import { Copy, Check, ArrowSquareOut, VideoCamera } from '@phosphor-icons/react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 
@@ -111,12 +111,27 @@ export function DetailPanel({ capability }: DetailPanelProps) {
         <Separator />
 
         <section>
-          <h3 className={cn(
-            "text-xs font-semibold uppercase tracking-wide mb-3",
-            STAGE_TEXT_COLORS[capability.stage]
-          )}>
-            Demo Flow
-          </h3>
+          <div className="flex items-center justify-between mb-3">
+            <h3 className={cn(
+              "text-xs font-semibold uppercase tracking-wide",
+              STAGE_TEXT_COLORS[capability.stage]
+            )}>
+              Demo Flow
+            </h3>
+            {capability.videoUrl && (
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className="h-7 gap-1.5"
+              >
+                <a href={capability.videoUrl} target="_blank" rel="noopener noreferrer">
+                  <VideoCamera size={14} weight="fill" />
+                  Watch Demo
+                </a>
+              </Button>
+            )}
+          </div>
           <ol className="space-y-2">
             {capability.demoFlow.map((step, i) => (
               <li key={i} className="flex items-start gap-3 text-sm">
