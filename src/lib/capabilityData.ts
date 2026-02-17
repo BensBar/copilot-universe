@@ -88,30 +88,43 @@ export const capabilityData: Capability[] = [
     id: 'spaces',
     stage: 'Plan',
     label: 'Spaces',
-    summary: 'Spaces organize related repositories and resources for teams. Copilot helps navigate and understand complex organizational structures.',
+    summary: 'Copilot Spaces let you organize the context that Copilot uses to answer your questions. Spaces can include repositories, code, pull requests, issues, free-text content, images, and file uploads. Ask Copilot questions grounded in that context, or share the space with your team.',
     howCopilotHelps: [
-      'Maps dependencies across repositories',
-      'Identifies related code and documentation',
-      'Suggests team organization patterns',
-      'Provides cross-repo search and insights'
+      'Gets more relevant, specific answers by grounding Copilot in curated context',
+      'Reduces repeated questions by sharing knowledge with your team',
+      'Supports onboarding with self-service context that lives beyond chat history',
+      'Stays in sync as your project evolves - GitHub sources auto-update',
+      'Available in Copilot Chat on GitHub.com and in IDEs via the GitHub MCP server'
     ],
     demoFlow: [
-      'N/A - Spaces is not yet generally available',
-      'Feature is in limited preview'
+      'Go to github.com/copilot/spaces and click "Create space"',
+      'Name your space and choose ownership (personal or organization)',
+      'Add instructions describing what Copilot should focus on',
+      'Add sources: repositories, files, PRs, issues, uploads, or free text',
+      'Ask Copilot questions grounded in the space context',
+      'Share the space with team members (admin, editor, or viewer access)'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=a0LWEWLUt48',
     prompts: [
       {
-        title: 'Copilot Chat',
-        promptText: 'Show me all repositories in this space that depend on the authentication service and their current versions.'
+        title: 'Copilot Spaces',
+        promptText: 'What are the main architectural patterns used across these repositories?'
+      },
+      {
+        title: 'Copilot Spaces',
+        promptText: 'Summarize the recent changes in the authentication service and any related issues'
       }
     ],
     governanceNotes: [
-      'Access respects existing repository permissions',
-      'Cross-repo analysis limited to accessible repos'
+      'Available to anyone with a Copilot license, including Copilot Free',
+      'Viewers can only see sources they have access to',
+      'Organization-owned spaces use GitHub built-in permission model (admin, editor, viewer)',
+      'Individual-owned spaces can be shared publicly, with specific users, or kept private',
+      'Questions in spaces count as Copilot Chat requests; premium models count against quota'
     ],
     links: [
-      { label: 'Spaces Overview', url: 'https://docs.github.com/organizations' }
+      { label: 'About Copilot Spaces', url: 'https://docs.github.com/en/copilot/concepts/context/spaces' },
+      { label: 'Creating Copilot Spaces', url: 'https://docs.github.com/en/copilot/how-tos/provide-context/use-copilot-spaces/create-copilot-spaces' }
     ]
   },
   {
@@ -188,19 +201,20 @@ export const capabilityData: Capability[] = [
     id: 'editor-ides',
     stage: 'Code',
     label: 'Editor/IDEs',
-    summary: 'Copilot integrates natively with VS Code, JetBrains IDEs, Neovim, and Visual Studio, providing inline code suggestions as you type.',
+    summary: 'Copilot integrates natively with VS Code, JetBrains IDEs, Visual Studio, Eclipse, Xcode, and Neovim, providing inline code suggestions as you type.',
     howCopilotHelps: [
       'Generates code completions in real-time',
-      'Understands context from open files',
+      'Understands context from open files and your project',
       'Suggests entire functions and classes',
-      'Learns from your coding patterns'
+      'Supports multiple languages and frameworks',
+      'Works across VS Code, JetBrains, Visual Studio, Eclipse, Xcode, and Neovim'
     ],
     demoFlow: [
-      'Open a file in VS Code with Copilot enabled',
+      'Open a file in VS Code (or your IDE) with Copilot enabled',
       'Start typing a function signature or comment',
       'View the gray ghost text suggestion',
       'Press Tab to accept or Esc to dismiss',
-      'Press Ctrl+Enter (Cmd+Enter on Mac) to see alternatives'
+      'Use Alt+] / Alt+[ (Option+] / Option+[ on Mac) to cycle through alternatives'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Fi3AJZZregI',
     prompts: [
@@ -223,93 +237,124 @@ export const capabilityData: Capability[] = [
     id: 'copilot-cli',
     stage: 'Code',
     label: 'Copilot CLI',
-    summary: 'GitHub Copilot in the CLI helps you compose commands, understand error messages, and automate terminal workflows using natural language.',
+    summary: 'GitHub Copilot CLI is a standalone command-line agent that allows you to use Copilot directly from your terminal. It can make multi-file changes, create pull requests, manage issues, and interact with GitHub - all without leaving the command line.',
     howCopilotHelps: [
-      'Translates natural language to shell commands',
-      'Explains complex command outputs',
-      'Suggests git commands for common operations',
-      'Helps debug error messages'
+      'Makes code changes across multiple files from natural language requests',
+      'Creates branches, commits, and pull requests autonomously',
+      'Manages GitHub issues and pull requests from the terminal',
+      'Provides interactive and programmatic modes for different workflows',
+      'Includes plan mode to build structured implementation plans before coding',
+      'Works iteratively with automatic context management for long sessions',
+      'Customizable with custom instructions, MCP servers, hooks, skills, and memory',
+      'Supports ACP (Agent Client Protocol) for integration with third-party tools'
     ],
     demoFlow: [
-      'Install GitHub CLI and Copilot extension: gh extension install github/gh-copilot',
-      'Run: gh copilot suggest "your request"',
-      'Review the suggested command',
-      'Press Enter to copy or run the command',
-      'Use: gh copilot explain "command" to understand commands'
+      'Install via npm: npm install -g @github/copilot',
+      'Start interactive session: copilot (first launch prompts for authentication)',
+      'Confirm you trust the current directory when prompted',
+      'Ask Copilot to perform tasks: "Add error handling to server.js"',
+      'Switch to plan mode (Shift+Tab) for complex multi-step tasks',
+      'Or use programmatically: copilot -p "Create a PR that updates the README" --allow-tool \'shell(git)\'',
+      'Review and approve tool usage (file changes, shell commands, etc.)',
+      'Use /compact to manage context, /model to switch models (default: Claude Sonnet 4.5)'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=VkOibxsQ1oU',
     prompts: [
       {
-        title: 'Copilot CLI',
-        promptText: 'gh copilot suggest "find all JavaScript files modified in the last week and count lines of code"'
+        title: 'Interactive Mode',
+        promptText: 'copilot\n> Change the background-color of H1 headings to dark blue'
       },
       {
-        title: 'Copilot CLI',
-        promptText: 'gh copilot explain "git rebase -i HEAD~5"'
+        title: 'Create Pull Request',
+        promptText: 'copilot -p "Create a PR that adds TypeScript types to all JavaScript files"'
+      },
+      {
+        title: 'Work on Issue',
+        promptText: 'copilot\n> I\'ve been assigned issue #42. Start working on this for me in a new branch.'
+      },
+      {
+        title: 'Local Development',
+        promptText: 'copilot\n> Create a Next.js dashboard app using the GitHub API to track build metrics'
       }
     ],
     governanceNotes: [
-      'Commands are executed locally',
-      'No command history is stored by GitHub'
+      'Copilot CLI is in public preview with data protection',
+      'Available with all Copilot plans; org admins can enable/disable via policy',
+      'All file modifications and shell commands require approval unless explicitly allowed',
+      'Launch only from trusted directories - scoped to current working directory',
+      'Use --allow-tool and --deny-tool flags to control permissions (e.g., --deny-tool \'shell(rm)\')',
+      'Default model: Claude Sonnet 4.5 (changeable via /model); each prompt uses 1 premium request'
     ],
     links: [
-      { label: 'CLI Documentation', url: 'https://docs.github.com/copilot/github-copilot-in-the-cli' }
+      { label: 'GitHub Copilot CLI Documentation', url: 'https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli' },
+      { label: 'Install Copilot CLI', url: 'https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli' }
     ]
   },
   {
     id: 'coding',
     stage: 'Code',
-    label: '/coding',
-    summary: 'The /coding skill provides an agentic coding experience where Copilot can make multi-file changes, refactor code, and implement features autonomously.',
+    label: 'Agent Mode',
+    summary: 'Agent mode in VS Code provides an agentic coding experience where Copilot can autonomously plan, make multi-file changes, run terminal commands, and implement features. Runs locally, in the background, or in the cloud.',
     howCopilotHelps: [
-      'Makes changes across multiple files',
-      'Refactors code with understanding of patterns',
-      'Implements features from descriptions',
-      'Handles dependencies and imports automatically'
+      'Makes changes across multiple files autonomously',
+      'Runs terminal commands (install deps, build, test)',
+      'Plans and implements features from descriptions',
+      'Handles dependencies and imports automatically',
+      'Supports local, background, and cloud execution modes',
+      'Can hand off sessions between execution modes mid-conversation'
     ],
     demoFlow: [
-      'Open Copilot Chat in VS Code (Ctrl+Shift+I)',
-      'Click "Open Copilot Edits" or use Ctrl+Shift+Alt+I',
+      'Open the Chat view in VS Code (Ctrl+Cmd+I on Mac, Ctrl+Alt+I on Windows/Linux)',
+      'Select "Agent" from the agent picker dropdown',
       'Describe the changes you want across files',
-      'Review proposed changes in the diff view',
-      'Click Accept or Discard for each file'
+      'Agent autonomously edits files and runs terminal commands',
+      'Review proposed changes using inline diffs',
+      'Use Keep or Undo controls for each file change',
+      'Use checkpoints to roll back to a previous state if needed'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=hPVatUSvZq0',
     prompts: [
       {
-        title: 'VS Code',
+        title: 'VS Code Agent',
         promptText: 'Add dark mode support to this React app using CSS variables and a toggle component'
       },
       {
-        title: 'VS Code',
+        title: 'VS Code Agent',
         promptText: 'Refactor this class-based component to use React hooks'
       }
     ],
     governanceNotes: [
-      'Changes require developer review before applying',
-      'All modifications are tracked in git'
+      'Changes require developer review before accepting via inline diffs',
+      'All modifications are tracked in git',
+      'Checkpoints allow rolling back to previous state'
     ],
     links: [
-      { label: 'Copilot Edits', url: 'https://docs.github.com/copilot' }
+      { label: 'VS Code Chat Overview', url: 'https://code.visualstudio.com/docs/copilot/chat/copilot-chat' },
+      { label: 'Agents Overview', url: 'https://code.visualstudio.com/docs/copilot/agents/overview' }
     ]
   },
   {
     id: 'spark-app',
     stage: 'Code',
-    label: '/spark-app',
-    summary: 'Spark lets you create and deploy micro-apps instantly using natural language. Describe what you need and get a working application.',
+    label: 'GitHub Spark',
+    summary: 'GitHub Spark is an AI-powered tool for creating and sharing personalized micro-apps ("sparks") using natural language, with a managed runtime, PWA dashboard, and deployment-free hosting. Now in public preview.',
     howCopilotHelps: [
-      'Generates complete web applications',
-      'Creates interactive prototypes quickly',
-      'Builds internal tools and dashboards',
-      'Deploys apps with one click'
+      'Generates complete web applications from natural language descriptions',
+      'Provides interactive live preview as you iterate',
+      'Offers revision variants (3-6 alternatives) for ambiguous requests',
+      'Includes persistent key-value data storage (useKV)',
+      'Built-in theming system (accent color, border radius, light/dark mode)',
+      'Integrated LLM prompting via GitHub Models for AI-powered app features',
+      'Auto-deploys as PWA - usable on desktop, tablet, and mobile'
     ],
     demoFlow: [
-      'Go to github.com/spark',
-      'Click "New Spark" and describe your app',
-      'Watch the app generate in real-time preview',
-      'Iterate by typing follow-up changes',
-      'Click "Publish" to share with others'
+      'Go to github.com/features/spark',
+      'Click "New Spark" and describe your app idea in natural language',
+      'Watch the app generate with an interactive live preview',
+      'Iterate by typing follow-up changes or requesting variants',
+      'Use the theme editor to customize colors, spacing, and mode',
+      'View and edit stored data with the built-in data editor',
+      'Share with others (read-only or read-write) or remix'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=zB-izOTcQ6s',
     prompts: [
@@ -319,44 +364,65 @@ export const capabilityData: Capability[] = [
       }
     ],
     governanceNotes: [
-      'Spark apps run in isolated environments',
-      'Data is stored per-app with user consent'
+      'Now in public preview',
+      'Apps run in isolated managed runtime environments',
+      'Data stored per-app in encrypted key-value store',
+      'Automatic version history for every revision',
+      'Sharing with granular read-only or read-write permissions'
     ],
     links: [
-      { label: 'GitHub Spark', url: 'https://githubnext.com/projects/github-spark' }
+      { label: 'GitHub Spark', url: 'https://github.com/features/spark' },
+      { label: 'GitHub Spark Overview', url: 'https://githubnext.com/projects/github-spark' }
     ]
   },
   {
     id: 'custom-agents-code',
     stage: 'Code',
     label: 'Custom agents',
-    summary: 'Build custom Copilot agents that understand your specific codebase, tools, and workflows. Extend Copilot with domain-specific knowledge.',
+    summary: 'Custom agents are specialized versions of the Copilot coding agent that you tailor to your unique workflows, coding conventions, and use cases. They act like tailored teammates that follow your standards, use the right tools, and implement team-specific practices.',
     howCopilotHelps: [
-      'Create agents with custom knowledge bases',
-      'Connect to internal APIs and tools',
-      'Define specialized workflows',
-      'Share agents across your organization'
+      'Define agents once instead of repeatedly providing the same instructions',
+      'Encode team conventions, frameworks, and coding standards directly into Copilot',
+      'Create specialized agents for specific tasks (e.g., README specialist, test writer, refactoring expert)',
+      'Configure agents with custom prompts, tools, and MCP servers',
+      'Share agents at repository, organization, or enterprise level',
+      'Use agents in VS Code, JetBrains IDEs, Eclipse, Xcode, GitHub.com, and Copilot CLI'
     ],
     demoFlow: [
-      'Go to github.com/marketplace?type=apps&copilot_app=true',
-      'Browse or search for Copilot Extensions',
-      'Install an extension to your org/account',
-      'Use @extension-name in Copilot Chat to invoke it',
-      'Or build your own at github.com/settings/apps'
+      'Create agent profile: .github/agents/my-agent.md with YAML frontmatter and Markdown instructions',
+      'Define name, description, and custom prompt for the agent\'s behavior',
+      'Optional: Specify allowed tools and MCP servers',
+      'For org-wide agents: Create in .github-private/agents/ repository',
+      'Use agent in VS Code: @my-agent or select from agent picker',
+      'Use on GitHub.com: Assign agent to issues, use in Agents tab',
+      'Use in CLI: copilot with agent delegation'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=5NxGqnTazR8&t=620s',
     prompts: [
       {
-        title: 'Copilot Chat',
-        promptText: '@my-agent How do I connect to our internal payment service API?'
+        title: 'README Specialist',
+        promptText: '@readme-creator Improve the README.md with installation instructions and usage examples'
+      },
+      {
+        title: 'Test Agent',
+        promptText: '@test-specialist Add comprehensive unit tests for the UserService class'
+      },
+      {
+        title: 'Architecture Agent',
+        promptText: '@architect Review this pull request for adherence to our microservices architecture patterns'
       }
     ],
     governanceNotes: [
-      'Custom agents respect org permissions',
-      'Knowledge base data remains within your control'
+      'GA in VS Code and on GitHub.com; public preview for JetBrains IDEs, Eclipse, and Xcode',
+      'Repository-level agents: .github/agents/AGENT-NAME.md',
+      'Org/enterprise agents: .github-private/agents/AGENT-NAME.md (can include MCP server configs)',
+      'Agent profiles respect organization permissions and policies',
+      'Agents can be restricted to specific tools via agent profile configuration'
     ],
     links: [
-      { label: 'Copilot Extensions', url: 'https://docs.github.com/copilot/building-copilot-extensions' }
+      { label: 'About Custom Agents', url: 'https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents' },
+      { label: 'Creating Custom Agents', url: 'https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents' },
+      { label: 'VS Code Custom Agents', url: 'https://code.visualstudio.com/docs/copilot/customization/custom-agents' }
     ]
   },
   {
@@ -395,20 +461,24 @@ export const capabilityData: Capability[] = [
   {
     id: 'code-review',
     stage: 'Verify',
-    label: '/code-review',
-    summary: 'Copilot Code Review provides automated, AI-powered code review that catches bugs, security issues, and suggests improvements before human review.',
+    label: 'Code Review',
+    summary: 'Copilot Code Review provides automated, AI-powered code review on pull requests and in your IDE. It catches bugs, suggests improvements, and provides fix suggestions you can apply with a click.',
     howCopilotHelps: [
-      'Reviews code for bugs and anti-patterns',
-      'Identifies security vulnerabilities',
-      'Suggests performance improvements',
-      'Enforces coding standards'
+      'Reviews pull request diffs for bugs and anti-patterns',
+      'Provides inline comments with suggested code changes',
+      'Can be configured for automatic review on all PRs',
+      'Customizable with repository instructions (.github/copilot-instructions.md) and path-specific rules',
+      'Available on GitHub.com, VS Code, JetBrains, Visual Studio, Xcode, and Mobile',
+      'Can invoke coding agent to implement suggestions ("Implement suggestion" button)'
     ],
     demoFlow: [
-      'Open a pull request',
+      'Open a pull request on GitHub.com',
       'Under Reviewers, select "Copilot"',
-      'Wait for Copilot to analyze the diff',
-      'View inline comments with suggestions',
-      'Click "Commit suggestion" to apply fixes directly'
+      'Wait for Copilot to review (usually <30 seconds)',
+      'Scroll down to read inline comments with suggestions',
+      'Click "Commit suggestion" to apply fixes directly, or "Implement suggestion" to invoke coding agent',
+      'Provide feedback with thumbs up/down on each comment',
+      'Optionally enable automatic reviews in repository settings'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=lW44NYHZDto',
     prompts: [
@@ -419,36 +489,42 @@ export const capabilityData: Capability[] = [
     ],
     governanceNotes: [
       'Review findings stay within GitHub',
-      'Can be configured to require human approval',
+      'Copilot leaves "Comment" reviews only - does not approve or request changes, does not block merging',
+      'Also available to org members without a Copilot license (when enabled by admin)',
+      'Customizable with .github/copilot-instructions.md and path-specific .instructions.md files',
       'Audit logs track all review activities'
     ],
     links: [
-      { label: 'Code Review Docs', url: 'https://docs.github.com/copilot/using-github-copilot/code-review' }
+      { label: 'Using Copilot Code Review', url: 'https://docs.github.com/en/copilot/how-tos/use-copilot-agents/request-a-code-review/use-code-review' }
     ]
   },
   {
     id: 'secure-autofix',
     stage: 'Verify',
-    label: '/secure + /auto-fix',
-    summary: 'Copilot security scanning identifies vulnerabilities and generates fixes automatically, shifting security left in the development process.',
+    label: 'Copilot Autofix',
+    summary: 'Copilot Autofix for code scanning generates targeted fix suggestions for security vulnerabilities found by CodeQL. It provides code changes you can review and commit directly to your pull request.',
     howCopilotHelps: [
-      'Scans for OWASP Top 10 vulnerabilities',
-      'Generates secure code replacements',
-      'Explains vulnerability impact',
-      'Prevents insecure patterns in suggestions'
+      'Generates fix suggestions for CodeQL security alerts on pull requests',
+      'Supports C#, C/C++, Go, Java/Kotlin, Swift, JavaScript/TypeScript, Python, Ruby, and Rust',
+      'Provides explanatory text with each suggested fix',
+      'Fixes can be committed directly from the alert page',
+      'Works automatically - no user interaction needed beyond enabling code scanning',
+      'Available on all public repos and orgs with GitHub Code Security'
     ],
     demoFlow: [
-      'Enable Code Scanning in repo Settings > Security',
-      'Push code or open a PR to trigger a scan',
-      'View alerts under Security > Code scanning',
-      'Click an alert to see "Generate fix" button',
-      'Review and commit the Copilot-suggested fix'
+      'Enable Code Scanning with CodeQL in repository Settings > Code security',
+      'Push code or open a pull request to trigger a scan',
+      'View alerts under Security > Code scanning alerts',
+      'Copilot Autofix automatically generates fix suggestions alongside alerts',
+      'Review the suggested code changes and explanation',
+      'Click "Commit suggestion" to apply the fix, or edit as needed',
+      'Verify CI tests still pass after applying the fix'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=jNLASUQIJAs',
     prompts: [
       {
-        title: 'VS Code',
-        promptText: 'Scan this authentication code for security vulnerabilities'
+        title: 'Code Scanning Alert',
+        promptText: 'Review the Copilot Autofix suggestion on the SQL injection alert and commit the fix'
       },
       {
         title: 'Copilot Chat',
@@ -456,12 +532,15 @@ export const capabilityData: Capability[] = [
       }
     ],
     governanceNotes: [
-      'Security findings are confidential',
-      'Integrates with existing security policies',
-      'Compliance reporting available'
+      'No Copilot subscription required - available with GitHub Code Security or on all public repos',
+      'Fixes are suggestions only - developer must review and approve',
+      'Data is not used for LLM training',
+      'Autofix can be disabled at repository, org, or enterprise level',
+      'Developer retains responsibility for reviewing AI-suggested changes'
     ],
     links: [
-      { label: 'Code Scanning', url: 'https://docs.github.com/code-security/code-scanning' }
+      { label: 'Responsible Use of Copilot Autofix', url: 'https://docs.github.com/en/code-security/responsible-use/responsible-use-autofix-code-scanning' },
+      { label: 'Code Scanning Docs', url: 'https://docs.github.com/en/code-security/code-scanning' }
     ]
   },
   {
@@ -476,11 +555,12 @@ export const capabilityData: Capability[] = [
       'Mocks dependencies automatically'
     ],
     demoFlow: [
-      'Open a file in VS Code and select a function',
-      'Open Copilot Chat and type: Generate tests for this function',
-      'Review the generated test cases',
-      'Copy tests to your test file',
-      'Run tests to verify coverage'
+      'Open a file in VS Code and select a function or class',
+      'Open Copilot Chat and ask: "Generate tests for this function"',
+      'Or use Agent mode: "Add comprehensive tests for UserService"',
+      'Agent creates test file, writes tests, and runs them',
+      'Review generated test cases and adjust as needed',
+      'Run tests to verify coverage with your test framework'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=smdBqEu7fx4',
     prompts: [
@@ -642,182 +722,249 @@ export const capabilityData: Capability[] = [
   {
     id: 'ai-workflows',
     stage: 'Deploy',
-    label: 'AI Workflows',
-    summary: 'AI-powered workflows in GitHub Actions enable intelligent automation, from code generation to deployment decisions.',
+    label: 'Agentic Workflows',
+    summary: 'GitHub Agentic Workflows bring coding agents into GitHub Actions for intelligent repository automation. Write workflows in plain Markdown to automate triage, documentation, code quality, testing, and more - with built-in guardrails and sandboxed execution.',
     howCopilotHelps: [
-      'Integrates LLMs into CI/CD pipelines',
-      'Automates content generation',
-      'Makes intelligent deployment decisions',
-      'Processes and summarizes data'
+      'Automates continuous triage: summarize, label, and route issues',
+      'Keeps documentation aligned with code changes automatically',
+      'Continuously identifies code improvements and opens PRs',
+      'Assesses test coverage and adds high-value tests',
+      'Investigates CI failures and proposes targeted fixes',
+      'Creates regular reports on repository health and trends',
+      'Runs with read-only permissions by default with safe outputs for write operations'
     ],
     demoFlow: [
-      'N/A - AI Workflows is a conceptual capability',
-      'Use GitHub Actions with script steps to call AI APIs',
-      'Ask Copilot Chat to help write the workflow YAML'
+      'Install: gh extension install github/gh-aw',
+      'Quick start: gh aw add-wizard githubnext/agentics/daily-repo-status (interactive setup)',
+      'Wizard checks prerequisites, selects AI engine (Copilot, Claude, or Codex), sets up secrets',
+      'Or manually: create a workflow in .github/workflows/my-workflow.md with YAML frontmatter and Markdown instructions',
+      'Compile manually: gh aw compile (creates lock file)',
+      'Commit and push to repository',
+      'Workflow runs on schedule or trigger (issue_comment, pull_request, etc.)',
+      'Review outputs: issues, comments, or PRs created by the agent (2-3 min per run)'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=Ul1FynLT78Q',
     prompts: [
       {
-        title: 'Copilot Chat',
-        promptText: 'Create a workflow that uses AI to generate a weekly summary of repository activity and posts it to Slack'
+        title: 'Create Daily Report',
+        promptText: 'Generate a workflow that creates a daily status report for maintainers with recent activity, progress, and actionable next steps'
+      },
+      {
+        title: 'Auto Triage Issues',
+        promptText: 'Create an agentic workflow that automatically triages new issues by analyzing content, adding labels, and assigning to the right team'
+      },
+      {
+        title: 'Documentation Sync',
+        promptText: 'Build a workflow that keeps README and docs updated when code changes are merged'
+      },
+      {
+        title: 'Continuous Testing',
+        promptText: 'Design a workflow that identifies gaps in test coverage and creates PRs with new test cases'
       }
     ],
     governanceNotes: [
-      'AI actions use organization-approved models',
-      'Token usage is tracked and billed',
-      'Outputs should be reviewed for accuracy'
+      'Now in technical preview - available for testing',
+      'Workflows run in sandboxed GitHub Actions with read-only permissions by default',
+      'Write operations require explicit safe-outputs configuration',
+      'Tool allowlisting and network isolation prevent unintended actions',
+      'Pull requests are never merged automatically - human review required',
+      'Defense-in-depth security against prompt injection attacks',
+      'Each workflow run typically incurs 2 premium Copilot requests (work + guardrail check)'
     ],
     links: [
-      { label: 'Actions AI', url: 'https://docs.github.com/actions' }
+      { label: 'GitHub Agentic Workflows', url: 'https://github.github.io/gh-aw/' },
+      { label: 'Quick Start Guide', url: 'https://github.github.io/gh-aw/setup/quick-start/' },
+      { label: 'Creating Workflows', url: 'https://github.github.io/gh-aw/setup/creating-workflows/' },
+      { label: 'Peli\'s Agent Factory', url: 'https://github.github.io/gh-aw/blog/2026-01-12-welcome-to-pelis-agent-factory/' }
     ]
   },
   {
     id: 'custom-agents-deploy',
     stage: 'Deploy',
     label: 'Custom agents',
-    summary: 'Deploy custom Copilot agents for CI/CD operations, enabling AI-assisted deployments and infrastructure management.',
+    summary: 'Custom agents can be specialized for deployment and operations tasks, creating deployment-specific assistants that follow your infrastructure patterns, deployment procedures, and operational workflows.',
     howCopilotHelps: [
-      'Creates deployment-specific agents',
-      'Integrates with infrastructure tools',
-      'Automates runbook execution',
-      'Provides deployment intelligence'
+      'Create deployment-focused agents with runbook knowledge',
+      'Define agents that understand your infrastructure patterns (Kubernetes, AWS, Azure, etc.)',
+      'Build agents specialized in incident response and troubleshooting',
+      'Configure agents with access to deployment tools and MCP servers',
+      'Encode deployment best practices and approval workflows',
+      'Share operational knowledge across teams'
     ],
     demoFlow: [
-      'N/A - Same as Code stage Custom agents',
-      'Install extensions from GitHub Marketplace',
-      'Or build custom extensions using the Copilot Extensions SDK'
+      'Create deployment agent: .github/agents/deploy-agent.md',
+      'Configure with deployment-specific instructions and tool access',
+      'Define MCP servers for infrastructure tools (kubectl, terraform, etc.)',
+      'Set up tool restrictions for safe operations',
+      'Use in operations: @deploy-agent or assign to deployment issues',
+      'Review agent actions through audit logs'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=5NxGqnTazR8&t=620s',
     prompts: [
       {
-        title: 'Copilot Chat',
-        promptText: '@deploy-agent Roll back the payment service to the previous stable version'
+        title: 'Deployment Agent',
+        promptText: '@deploy-agent Deploy the payment service to production following our standard procedure'
+      },
+      {
+        title: 'Rollback Agent',
+        promptText: '@ops-agent Roll back the API gateway to the previous stable version'
+      },
+      {
+        title: 'Infrastructure Agent',
+        promptText: '@infra-agent Review this Terraform configuration for compliance with our security policies'
       }
     ],
     governanceNotes: [
-      'Deployment agents require elevated permissions',
-      'All actions are audit logged',
-      'Approval gates can be configured'
+      'Same configuration as Code stage - agent profiles work across all contexts',
+      'Deployment agents should have carefully configured tool restrictions',
+      'Use MCP servers to safely integrate with infrastructure tools',
+      'All agent actions are logged and auditable',
+      'Can require approval gates for sensitive operations',
+      'Organization policies apply to all custom agents regardless of use case'
     ],
     links: [
-      { label: 'Copilot Extensions', url: 'https://docs.github.com/copilot/building-copilot-extensions' }
+      { label: 'About Custom Agents', url: 'https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents' },
+      { label: 'Creating Custom Agents', url: 'https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents' }
     ]
   },
   {
     id: 'metrics-roi',
     stage: 'Operate',
     label: 'Metrics/ROI',
-    summary: 'Track Copilot adoption and impact with detailed metrics dashboards. Measure productivity gains and demonstrate ROI.',
+    summary: 'Track Copilot adoption and impact with usage data and activity reports. Review seat assignments, last activity dates, and generate CSV reports for custom analysis.',
     howCopilotHelps: [
-      'Shows acceptance rate analytics',
-      'Tracks time saved estimates',
-      'Compares team productivity trends',
-      'Generates executive reports'
+      'Shows seat assignment overview and estimated monthly cost',
+      'Tracks last activity date per user',
+      'Generates downloadable CSV activity reports',
+      'Provides usage data via REST API for custom dashboards',
+      'Helps identify inactive seats for reassignment'
     ],
     demoFlow: [
-      'Go to Organization Settings > Copilot > Policies',
-      'Click "Copilot Metrics" in the sidebar',
-      'View adoption, acceptance rates, and usage stats',
-      'Filter by team, repository, or time period',
-      'Export data using the API for custom reporting'
+      'Go to Organization Settings > Copilot > Access',
+      'View seat overview: assigned seats, usage, estimated cost',
+      'Sort users by last Copilot activity date',
+      'Click "Activity report" to generate and download a CSV',
+      'Use the REST API to retrieve seat assignment data programmatically',
+      'Review metrics to make informed decisions about seat allocation'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=43yFNFT8-R4',
     prompts: [
       {
         title: 'Copilot Chat',
-        promptText: 'Summarize our organization Copilot usage for last quarter including active users, acceptance rates, and estimated time saved'
+        promptText: 'Summarize our organization Copilot usage for last quarter including active users and seat utilization'
       }
     ],
     governanceNotes: [
-      'Metrics are aggregated, not individual',
-      'Data retention follows org policies',
-      'Export requires admin permissions'
+      'Metrics are aggregated at the organization level',
+      'Activity report requires organization owner permissions and Copilot Business plan',
+      'API access requires appropriate authentication scopes',
+      'Data retention follows organization policies',
+      'Troubleshoot last_activity_at by ensuring telemetry is enabled in IDE settings'
     ],
     links: [
-      { label: 'Copilot Metrics', url: 'https://docs.github.com/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-github-copilot-in-your-enterprise' }
+      { label: 'Reviewing User Activity Data', url: 'https://docs.github.com/en/copilot/how-tos/administer-copilot/manage-for-organization/review-activity/review-user-activity-data' },
+      { label: 'Copilot Metrics API', url: 'https://docs.github.com/en/rest/copilot' }
     ]
   },
   {
     id: 'spark-runtime',
     stage: 'Operate',
     label: 'Spark Runtime',
-    summary: 'The Spark Runtime hosts and operates micro-apps created with GitHub Spark, providing scalable and secure execution.',
+    summary: 'The Spark managed runtime environment hosts micro-apps created with GitHub Spark, providing deployment-free hosting, persistent data storage, theming, and integrated LLM prompting via GitHub Models.',
     howCopilotHelps: [
-      'Monitors app health and performance',
-      'Suggests optimization opportunities',
-      'Debugs runtime issues',
-      'Manages data persistence'
+      'Deployment-free hosting: changes auto-deploy as PWAs for desktop, tablet, and mobile',
+      'Persistent key-value data storage with built-in data editor',
+      'Themable design system with accent colors, spacing, border radius, and light/dark mode',
+      'Integrated LLM prompting via GitHub Models for AI-powered app features',
+      'Built-in UI components for polished out-of-the-box look and feel'
     ],
     demoFlow: [
-      'Publish a Spark app (see /spark-app)',
-      'N/A - Runtime dashboard is not user-accessible',
-      'Monitor app behavior through the Spark interface',
-      'View stored data using useKV in your app code'
+      'Create and iterate on a Spark app (see GitHub Spark)',
+      'App is automatically deployed - no build/deploy steps needed',
+      'Install as a PWA on any device from the Spark dashboard',
+      'Use the data editor to view and edit key-value data your app stores',
+      'Use the theme editor to customize appearance',
+      'Use the prompt editor to view and adjust AI prompts your app uses',
+      'Share via read-only or read-write links; recipients can remix'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=zB-izOTcQ6s',
     prompts: [
       {
         title: 'Spark',
-        promptText: 'Show me the performance metrics for this app over the last week'
+        promptText: 'Build an app that summarizes daily HackerNews posts using AI'
       }
     ],
     governanceNotes: [
-      'Apps run in isolated containers',
-      'Data is encrypted at rest',
-      'Access logs are maintained'
+      'Apps run in isolated managed runtime environments',
+      'Data stored per-app in encrypted key-value store',
+      'Sharing with granular permissions (read-only or read-write)',
+      'Automatic version history for every revision'
     ],
     links: [
-      { label: 'GitHub Spark', url: 'https://githubnext.com/projects/github-spark' }
+      { label: 'GitHub Spark', url: 'https://github.com/features/spark' },
+      { label: 'GitHub Spark Overview', url: 'https://githubnext.com/projects/github-spark' }
     ]
   },
   {
     id: 'sre-agent',
     stage: 'Operate',
     label: 'SRE Agent',
-    summary: 'The SRE Agent provides AI-powered incident response, helping diagnose issues, suggest mitigations, and automate remediation.',
+    summary: 'NeuBird\'s agentic AI SRE delivers autonomous incident resolution, helping teams cut MTTR up to 90% and reclaim engineering hours lost to troubleshooting. Provides real-time root cause analysis (RCA) and remediation across hybrid and multi-cloud environments.',
     howCopilotHelps: [
-      'Analyzes incident patterns',
-      'Suggests root cause hypotheses',
-      'Recommends remediation steps',
-      'Automates runbook execution'
+      'Autonomous incident resolution with up to 90% MTTR reduction',
+      'Real-time root cause analysis (RCA) across hybrid and multi-cloud',
+      'Automatic remediation without human intervention',
+      'Reclaims engineering hours lost to troubleshooting',
+      'Works across complex distributed systems'
     ],
     demoFlow: [
-      'N/A - SRE Agent is not yet generally available',
-      'Feature is in limited preview for select customers'
+      'Integrate NeuBird AI with your monitoring and observability tools',
+      'When an incident occurs, NeuBird automatically begins analysis',
+      'AI agent investigates across logs, metrics, and traces',
+      'Receives real-time RCA with confidence scores',
+      'Agent can auto-remediate or suggest fixes',
+      'View incident timeline and resolution in dashboard'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=wsujLYrGRp8',
     prompts: [
       {
-        title: 'Copilot Chat',
-        promptText: '@sre-agent The API response times increased 10x in the last hour. Help me diagnose the root cause.'
+        title: 'NeuBird AI',
+        promptText: 'Analyze the current production incident affecting API response times and provide autonomous remediation'
+      },
+      {
+        title: 'Root Cause Analysis',
+        promptText: 'Show me the RCA for incidents in the last 24 hours across all cloud environments'
       }
     ],
     governanceNotes: [
-      'Agent actions can require approval',
-      'All remediations are logged',
-      'Integrates with existing ITSM'
+      'Autonomous actions can require approval based on policy',
+      'All investigations and remediations are fully logged',
+      'Works across hybrid and multi-cloud environments',
+      'Integrates with existing monitoring and ITSM tools'
     ],
     links: [
-      { label: 'Copilot for Operations', url: 'https://docs.github.com/copilot' }
+      { label: 'NeuBird Agentic AI SRE', url: 'https://neubird.ai/' }
     ]
   },
   {
     id: 'mcp-integrations',
     stage: 'Operate',
     label: 'MCP Integrations',
-    summary: 'Model Context Protocol (MCP) integrations connect Copilot to external tools and services, extending its operational capabilities.',
+    summary: 'Model Context Protocol (MCP) integrations connect Copilot to external tools and services, extending its capabilities with custom data sources, monitoring, ticketing, and more. Organizations can manage MCP usage via registries and policies.',
     howCopilotHelps: [
-      'Connects to monitoring platforms',
-      'Integrates with ticketing systems',
-      'Links to documentation tools',
-      'Extends with custom data sources'
+      'Connects to monitoring platforms, ticketing systems, and documentation tools',
+      'Extends Copilot with custom data sources and APIs',
+      'Organizations can curate approved servers via MCP registries',
+      'Policy settings control which MCP servers developers can access',
+      'Supported in VS Code, JetBrains, Visual Studio, Eclipse, Xcode, and Copilot CLI'
     ],
     demoFlow: [
-      'In VS Code, go to Settings > Copilot > MCP Servers',
-      'Add an MCP server configuration (URL and auth)',
-      'Restart Copilot Chat',
-      'Use @server-name in chat to query the connected tool',
-      'View responses with data from the external service'
+      'In VS Code, add MCP server configuration in settings or .vscode/mcp.json',
+      'Provide server URL, transport type, and authentication',
+      'Restart Copilot Chat to discover available tools',
+      'Use @server-name in chat or let the agent auto-select tools',
+      'Org admins: configure MCP registry URL in Copilot policies',
+      'Optionally restrict access to registry-listed servers only'
     ],
     videoUrl: 'https://www.youtube.com/watch?v=HN47tveqfQU',
     prompts: [
@@ -827,12 +974,15 @@ export const capabilityData: Capability[] = [
       }
     ],
     governanceNotes: [
-      'MCP connections use org-approved servers',
-      'Credentials are securely stored',
-      'Data access follows existing policies'
+      'Organizations can manage MCP usage via policy settings on GitHub.com',
+      'MCP registries let admins curate approved servers for discoverability and compliance',
+      'Option to restrict access to only registry-listed servers',
+      'Credentials are securely stored; data access follows existing org policies',
+      'MCP management supported in VS Code, JetBrains, Visual Studio, Eclipse, and Xcode'
     ],
     links: [
-      { label: 'MCP Overview', url: 'https://modelcontextprotocol.io' }
+      { label: 'MCP Overview', url: 'https://modelcontextprotocol.io' },
+      { label: 'MCP Server Management', url: 'https://docs.github.com/en/copilot/concepts/mcp-management' }
     ]
   }
 ];
