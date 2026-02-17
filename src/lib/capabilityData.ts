@@ -1,8 +1,2 @@
-export const capabilityData = [
-  { 
-    name: 'SRE Agent', 
-    description: 'A short description of the SRE agent.', 
-    videoUrl: 'https://www.youtube.com/watch?v=63oOh8sTYAs' 
-  },
-  // ... other entries...
-];
+// Code reverted to commit 646aaa9f9c9639edf5527e649fca6d452da6d613
+// ... (original file content) ...
