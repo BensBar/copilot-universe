@@ -38,7 +38,7 @@ export const capabilityData: Capability[] = [
       'Manually add labels and assignees',
       'Submit the issue'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=1VbCLPr9SDM',
+    videoUrl: 'https://www.youtube.com/watch?v=7T2XeTEeM7k',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -69,7 +69,7 @@ export const capabilityData: Capability[] = [
       'Use Copilot Chat to manually summarize project status',
       'Ask Copilot to help prioritize based on issue details'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=pRqXyYmN-Sk',
+    videoUrl: 'https://www.youtube.com/watch?v=h0AT3GagswQ',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -443,7 +443,7 @@ export const capabilityData: Capability[] = [
       'Edit the generated description as needed',
       'Submit the PR'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=yLHWRegFg-I',
+    videoUrl: 'https://www.youtube.com/watch?v=8hyvYP5PCks',
     prompts: [
       {
         title: 'PR comment',
@@ -480,7 +480,7 @@ export const capabilityData: Capability[] = [
       'Provide feedback with thumbs up/down on each comment',
       'Optionally enable automatic reviews in repository settings'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=lW44NYHZDto',
+    videoUrl: 'https://www.youtube.com/watch?v=xf65vxjNWdk',
     prompts: [
       {
         title: 'VS Code',
@@ -599,7 +599,7 @@ export const capabilityData: Capability[] = [
       'Click the deployment link in PR checks',
       'Test changes before merging'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=Ul1FynLT78Q',
+    videoUrl: 'https://www.youtube.com/watch?v=1GVBRhDI5No',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -632,7 +632,7 @@ export const capabilityData: Capability[] = [
       'Commit to .github/workflows/',
       'Push code to trigger the workflow'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=ljINpvCvHnQ',
+    videoUrl: 'https://www.youtube.com/watch?v=9bTurmeMJiI',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -670,7 +670,7 @@ export const capabilityData: Capability[] = [
       'Review auto-generated notes from commits',
       'Publish the release'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=Ob9llKkv6II',
+    videoUrl: 'https://www.youtube.com/watch?v=xf65vxjNWdk',
     prompts: [
       {
         title: 'Copilot Chat',
@@ -743,7 +743,7 @@ export const capabilityData: Capability[] = [
       'Workflow runs on schedule or trigger (issue_comment, pull_request, etc.)',
       'Review outputs: issues, comments, or PRs created by the agent (2-3 min per run)'
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=Ul1FynLT78Q',
+    videoUrl: 'https://www.youtube.com/watch?v=3_i03fGXs9U',
     prompts: [
       {
         title: 'Create Daily Report',
