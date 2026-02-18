@@ -33,12 +33,42 @@ interface CapabilityMapProps {
   onSelect: (id: string) => void;
 }
 
-const stageConfig: Record<Stage, { bg: string; header: string; headerText: string }> = {
-  Plan: { bg: 'bg-pink-50', header: 'bg-gradient-to-r from-pink-400 to-pink-300', headerText: 'text-white' },
-  Code: { bg: 'bg-orange-50', header: 'bg-gradient-to-r from-orange-400 to-orange-300', headerText: 'text-white' },
-  Verify: { bg: 'bg-green-50', header: 'bg-gradient-to-r from-green-400 to-green-300', headerText: 'text-white' },
-  Deploy: { bg: 'bg-purple-50', header: 'bg-gradient-to-r from-purple-400 to-purple-300', headerText: 'text-white' },
-  Operate: { bg: 'bg-teal-50', header: 'bg-gradient-to-r from-teal-400 to-teal-300', headerText: 'text-white' },
+const stageConfig: Record<Stage, { bg: string; header: string; headerText: string; darkBg: string; darkHeader: string }> = {
+  Plan: { 
+    bg: 'bg-pink-50', 
+    header: 'bg-gradient-to-r from-pink-400 to-pink-300', 
+    headerText: 'text-white',
+    darkBg: 'dark:bg-pink-950/30',
+    darkHeader: 'dark:from-pink-500 dark:to-pink-400'
+  },
+  Code: { 
+    bg: 'bg-orange-50', 
+    header: 'bg-gradient-to-r from-orange-400 to-orange-300', 
+    headerText: 'text-white',
+    darkBg: 'dark:bg-orange-950/30',
+    darkHeader: 'dark:from-orange-500 dark:to-orange-400'
+  },
+  Verify: { 
+    bg: 'bg-green-50', 
+    header: 'bg-gradient-to-r from-green-400 to-green-300', 
+    headerText: 'text-white',
+    darkBg: 'dark:bg-green-950/30',
+    darkHeader: 'dark:from-green-500 dark:to-green-400'
+  },
+  Deploy: { 
+    bg: 'bg-purple-50', 
+    header: 'bg-gradient-to-r from-purple-400 to-purple-300', 
+    headerText: 'text-white',
+    darkBg: 'dark:bg-purple-950/30',
+    darkHeader: 'dark:from-purple-500 dark:to-purple-400'
+  },
+  Operate: { 
+    bg: 'bg-teal-50', 
+    header: 'bg-gradient-to-r from-teal-400 to-teal-300', 
+    headerText: 'text-white',
+    darkBg: 'dark:bg-teal-950/30',
+    darkHeader: 'dark:from-teal-500 dark:to-teal-400'
+  },
 };
 
 const stageIcons: Record<Stage, React.ElementType> = {
@@ -95,12 +125,13 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
             <div 
               key={stage} 
               className={cn(
-                "rounded-xl overflow-hidden transition-opacity duration-200",
+                "rounded-xl overflow-hidden transition-all duration-300",
                 config.bg,
+                config.darkBg,
                 isStageFiltered && "opacity-30"
               )}
             >
-              <div className={cn("px-3 md:px-4 py-3 flex items-center gap-2", config.header)}>
+              <div className={cn("px-3 md:px-4 py-3 flex items-center gap-2 transition-all duration-300", config.header, config.darkHeader)}>
                 <StageIcon size={18} weight="bold" className={config.headerText} />
                 <span className={cn("font-semibold text-sm", config.headerText)}>{stage}</span>
               </div>
@@ -115,13 +146,14 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
                       key={cap.id}
                       onClick={() => onSelect(cap.id)}
                       className={cn(
-                        "w-full px-3 py-3 md:py-2.5 rounded-lg bg-white text-left text-xs md:text-xs font-medium transition-all duration-200 flex items-center gap-2 shadow-sm min-h-[48px] md:min-h-0",
+                        "w-full px-3 py-3 md:py-2.5 rounded-lg bg-white dark:bg-neutral-800 text-left text-xs md:text-xs font-medium transition-all duration-200 flex items-center gap-2 shadow-sm min-h-[48px] md:min-h-0",
                         "hover:shadow-md hover:scale-[1.02] active:scale-[0.98]",
-                        isSelected && "hotspot-glow ring-2 ring-primary"
+                        "dark:hover:shadow-lg dark:hover:shadow-primary/20",
+                        isSelected && "hotspot-glow ring-2 ring-primary dark:ring-primary/80 dark:shadow-primary/30"
                       )}
                     >
-                      <Icon size={16} weight="duotone" className="text-muted-foreground shrink-0" />
-                      <span className="break-words leading-tight">{cap.label}</span>
+                      <Icon size={16} weight="duotone" className="text-muted-foreground dark:text-neutral-400 shrink-0" />
+                      <span className="break-words leading-tight dark:text-neutral-100">{cap.label}</span>
                     </button>
                   );
                 })}

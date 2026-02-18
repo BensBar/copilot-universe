@@ -3,6 +3,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { CapabilityMap } from '@/components/CapabilityMap';
 import { DetailPanel } from '@/components/DetailPanel';
 import { MobileDetailDrawer } from '@/components/MobileDetailDrawer';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Search } from '@/components/Search';
 import { Filters } from '@/components/Filters';
 import { capabilityData, getCapabilityById } from '@/lib/capabilityData';
@@ -63,11 +64,14 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50/30">
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-3 md:px-4 py-3 md:py-4">
-          <h1 className="text-lg md:text-xl font-bold text-foreground">Copilot Capability Map</h1>
-          <p className="text-xs md:text-sm text-muted-foreground">Click a capability to see what Copilot does and how to demo it</p>
+    <div className="min-h-screen bg-gradient-to-br from-background via-background to-blue-50/30 dark:to-blue-950/30 transition-colors duration-300">
+      <header className="border-b bg-white/80 dark:bg-neutral-900/80 backdrop-blur-sm sticky top-0 z-40 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-3 md:px-4 py-3 md:py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-lg md:text-xl font-bold text-foreground">Copilot Capability Map</h1>
+            <p className="text-xs md:text-sm text-muted-foreground">Click a capability to see what Copilot does and how to demo it</p>
+          </div>
+          <ThemeToggle />
         </div>
       </header>
 
@@ -75,14 +79,14 @@ function App() {
         <div className={`flex ${isMobile ? 'flex-col' : 'flex-row'} gap-6`}>
           <div className={`${isMobile ? 'w-full' : 'flex-1'} space-y-4`}>
             {isMobile && (
-              <div className="bg-white rounded-2xl p-4 border shadow-sm">
+              <div className="bg-white dark:bg-neutral-900 rounded-2xl p-4 border dark:border-neutral-800 shadow-sm transition-colors duration-300">
                 <Search onSelect={handleSelect} />
               </div>
             )}
             
             <Filters activeStage={activeStage} onStageChange={setActiveStage} />
             
-            <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 border shadow-sm">
+            <div className="bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm rounded-2xl p-6 border dark:border-neutral-800 shadow-sm transition-colors duration-300">
               <CapabilityMap 
                 selectedId={selectedId}
                 activeStage={activeStage}
@@ -93,8 +97,8 @@ function App() {
           
           {!isMobile && (
             <div className="w-[400px] shrink-0">
-              <div className="sticky top-24 bg-white rounded-2xl border shadow-sm overflow-hidden">
-                <div className="p-4 border-b">
+              <div className="sticky top-24 bg-white dark:bg-neutral-900 rounded-2xl border dark:border-neutral-800 shadow-sm overflow-hidden transition-colors duration-300">
+                <div className="p-4 border-b dark:border-neutral-800">
                   <Search onSelect={handleSelect} />
                 </div>
                 <div className="h-[calc(100vh-220px)] min-h-[500px]">

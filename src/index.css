@@ -46,6 +46,42 @@
   --stage-operate: oklch(0.6 0.12 180);
 }
 
+.dark {
+  --background: oklch(0.12 0.02 250);
+  --foreground: oklch(0.95 0.01 250);
+  
+  --card: oklch(0.18 0.02 250);
+  --card-foreground: oklch(0.95 0.01 250);
+  
+  --popover: oklch(0.18 0.02 250);
+  --popover-foreground: oklch(0.95 0.01 250);
+  
+  --primary: oklch(0.65 0.2 250);
+  --primary-foreground: oklch(0.95 0 0);
+  
+  --secondary: oklch(0.22 0.02 250);
+  --secondary-foreground: oklch(0.85 0.01 250);
+  
+  --muted: oklch(0.22 0.02 250);
+  --muted-foreground: oklch(0.6 0.02 250);
+  
+  --accent: oklch(0.7 0.2 145);
+  --accent-foreground: oklch(0.95 0 0);
+  
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.95 0 0);
+  
+  --border: oklch(0.25 0.02 250);
+  --input: oklch(0.25 0.02 250);
+  --ring: oklch(0.65 0.2 250);
+  
+  --stage-plan: oklch(0.65 0.2 350);
+  --stage-code: oklch(0.6 0.22 30);
+  --stage-verify: oklch(0.6 0.2 150);
+  --stage-deploy: oklch(0.55 0.2 280);
+  --stage-operate: oklch(0.5 0.15 180);
+}
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -87,6 +123,22 @@
   box-shadow: 0 0 0 3px oklch(0.55 0.2 250 / 0.5), 0 0 20px oklch(0.55 0.2 250 / 0.3);
 }
 
+.dark .hotspot-glow {
+  box-shadow: 0 0 0 3px oklch(0.65 0.2 250 / 0.6), 0 0 30px oklch(0.65 0.2 250 / 0.4), 0 0 50px oklch(0.65 0.2 250 / 0.2);
+}
+
 .prompt-block {
   font-family: 'JetBrains Mono', monospace;
+}
+
+/* Smooth theme transitions */
+* {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Prevent transition on transform/opacity for animations */
+*:where([class*="scale-"], [class*="rotate-"], [class*="translate-"], [class*="opacity-"]) {
+  transition-property: transform, opacity;
 }
