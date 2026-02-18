@@ -80,11 +80,11 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
   return (
     <div className="w-full h-full flex flex-col">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-bold text-foreground mb-1">AI-powered Developer Platform</h2>
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-1">AI-powered Developer Platform</h2>
         <p className="text-muted-foreground text-sm">Scale & Governance</p>
       </div>
       
-      <div className="flex-1 grid grid-cols-5 gap-4 max-w-5xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto w-full">
         {STAGES.map((stage) => {
           const config = stageConfig[stage];
           const StageIcon = stageIcons[stage];
@@ -100,12 +100,12 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
                 isStageFiltered && "opacity-30"
               )}
             >
-              <div className={cn("px-4 py-3 flex items-center gap-2", config.header)}>
+              <div className={cn("px-3 md:px-4 py-3 flex items-center gap-2", config.header)}>
                 <StageIcon size={18} weight="bold" className={config.headerText} />
                 <span className={cn("font-semibold text-sm", config.headerText)}>{stage}</span>
               </div>
               
-              <div className="p-3 space-y-2">
+              <div className="p-2 md:p-3 space-y-2">
                 {stageCapabilities.map((cap) => {
                   const Icon = capabilityIcons[cap.id] || ListBullets;
                   const isSelected = selectedId === cap.id;
@@ -115,12 +115,12 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
                       key={cap.id}
                       onClick={() => onSelect(cap.id)}
                       className={cn(
-                        "w-full px-3 py-2.5 rounded-lg bg-white text-left text-xs font-medium transition-all duration-200 flex items-center gap-2 shadow-sm",
-                        "hover:shadow-md hover:scale-[1.02]",
+                        "w-full px-3 py-3 md:py-2.5 rounded-lg bg-white text-left text-xs md:text-xs font-medium transition-all duration-200 flex items-center gap-2 shadow-sm min-h-[48px] md:min-h-0",
+                        "hover:shadow-md hover:scale-[1.02] active:scale-[0.98]",
                         isSelected && "hotspot-glow ring-2 ring-primary"
                       )}
                     >
-                      <Icon size={14} weight="duotone" className="text-muted-foreground shrink-0" />
+                      <Icon size={16} weight="duotone" className="text-muted-foreground shrink-0" />
                       <span className="break-words leading-tight">{cap.label}</span>
                     </button>
                   );

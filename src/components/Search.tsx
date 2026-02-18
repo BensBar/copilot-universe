@@ -58,7 +58,7 @@ export function Search({ onSelect }: SearchProps) {
             setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
-          className="pl-10 pr-10 bg-white"
+          className="pl-10 pr-10 bg-white h-11 md:h-10"
           id="search-capabilities"
         />
         {query && (
@@ -67,7 +67,8 @@ export function Search({ onSelect }: SearchProps) {
               setQuery('');
               setResults([]);
             }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors p-2"
+            aria-label="Clear search"
           >
             <X size={16} />
           </button>
@@ -80,7 +81,7 @@ export function Search({ onSelect }: SearchProps) {
             <button
               key={cap.id}
               onClick={() => handleSelect(cap.id)}
-              className="w-full px-4 py-3 text-left hover:bg-muted/50 transition-colors flex items-center gap-3 border-b last:border-b-0"
+              className="w-full px-4 py-3 min-h-[56px] text-left hover:bg-muted/50 transition-colors flex items-center gap-3 border-b last:border-b-0"
             >
               <span className={`w-2 h-2 rounded-full ${STAGE_COLORS[cap.stage]}`} />
               <div className="flex-1 min-w-0">
