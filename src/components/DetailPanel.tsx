@@ -127,7 +127,7 @@ export function DetailPanel({ capability }: DetailPanelProps) {
               >
                 <a href={capability.videoUrl} target="_blank" rel="noopener noreferrer">
                   <VideoCamera size={14} weight="fill" />
-                  Watch Demo
+                  Watch Video
                 </a>
               </Button>
             )}
