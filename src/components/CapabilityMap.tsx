@@ -84,7 +84,7 @@ export function CapabilityMap({ selectedId, activeStage, onSelect }: CapabilityM
         <p className="text-muted-foreground text-sm">Scale & Governance</p>
       </div>
       
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto w-full">
+      <div className="flex-1 grid grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 max-w-5xl mx-auto w-full">
         {STAGES.map((stage) => {
           const config = stageConfig[stage];
           const StageIcon = stageIcons[stage];
